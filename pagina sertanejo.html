@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Playlist Sertanejo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url('fundo do sertanejo.jpg');
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .playlist {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .musica {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .musica:hover {
+      transform: scale(1.03);
+    }
+    .musica img {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      margin-right: 15px;
+    }
+    #player-container {
+      margin-top: 30px;
+      text-align: center;
+    }
+    audio {
+      width: 100%;
+      max-width: 500px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container text-center mt-4">
+  <h2>🎵 Escute nossa playlist de Sertanejo</h2>
+ <br><br>
+  <div class="row mt-4">
+    <!-- Capa principal -->
+    <div class="col-md-4">
+      <img src="sertanejo.jpg" alt="Capa Sertanejo" class="img-fluid rounded">
+    </div>
+
+    <!-- Lista de músicas (coluna central) -->
+    <div class="col-md-4 text-start">
+      <div class="playlist">
+
+        <div class="musica" onclick="tocarMusica('A serene countryside landscape at sunset.mp3', 'Cantos da terra')">
+          <img src="cantos da terra.jpg" alt="">
+          <span>Cantos da terra - Suno</span>
+        </div>
+
+        <div class="musica" onclick="tocarMusica('Coração Neon 1.mp3', 'Amor de estrada')">
+          <img src="amor de estrada.jpg" alt="">
+          <span>Amor de estrada - Suno</span>
+        </div>
+
+        <div class="musica" onclick="tocarMusica('Coração Neon.mp3', 'Coração na estrada')">
+          <img src="coração na estrada.jpg" alt="">
+          <span>Coração na estrada - Suno</span>
+        </div>
+
+        <div class="musica" onclick="tocarMusica('Corações em Neon.mp3', 'Beijo no violeiro')">
+          <img src="beijo no violeiro.jpg" alt="">
+          <span>Beijo no violeiro - Suno</span>
+        </div>
+
+        <div class="musica" onclick="tocarMusica('Heartache Rodeo.mp3', 'Versos de saudade')">
+          <img src="versos de saudade.jpg" alt="">
+          <span>Versos de saudade - Suno</span>
+        </div>
+
+        <div class="musica" onclick="tocarMusica('Corações em Neon 1.mp3', 'Seresta do amor')">
+          <img src="seresta do amor.jpg" alt="">
+          <span>Seresta do amor - Suno</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Lista de músicas (coluna direita) -->
+    <div class="col-md-4 text-start">
+      <div class="playlist">
+
+        <div class="musica" onclick="tocarMusica('Coração Sem Destino1.mp3', 'Noites do interior')">
+          <img src="noites do interior.jpg" alt="">
+          <span>Noites do interior - Suno</span>
+        </div>
+
+        <div class="musica" onclick="tocarMusica('Under the Moonlight.mp3', 'Promessa de amor')">
+          <img src="Promessa de amor.jpg" alt="">
+          <span>Promessa de amor - Suno</span>
+        </div>
+
+        <div class="musica" onclick="tocarMusica('Coração na Contra-mão.mp3', 'Doce viola')">
+          <img src="doce viola.jpg" alt="">
+          <span>Doce viola - Suno</span>
+        </div>
+
+        <div class="musica" onclick="tocarMusica('Coração Sem Destino.mp3', 'Saudade sertaneja')">
+          <img src="saudade sertaneja.jpg" alt="">
+          <span>Saudade sertaneja - Suno</span>
+        </div>
+
+        <div class="musica" onclick="tocarMusica('Dusty Red Soil.mp3', 'Eterno compasso')">
+          <img src="eterno compasso.jpg" alt="">
+          <span>Eterno compasso - Suno</span>
+        </div>
+
+        <div class="musica" onclick="tocarMusica('Lost in Your Eyes.mp3', 'Chuva de paixão')">
+          <img src="chuva de paixão.jpg" alt="">
+          <span>Chuva de paixão - Suno</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Player -->
+  <div id="player-container">
+    <h4 id="musica-atual">Selecione uma música 🎶</h4>
+    <audio id="player" controls>
+      <source src="" type="audio/mpeg">
+      Seu navegador não suporta áudio.
+    </audio>
+  </div>
+</div>
+
+<script>
+  function tocarMusica(caminho, nome) {
+    const player = document.getElementById("player");
+    const musicaAtual = document.getElementById("musica-atual");
+    
+    player.src = caminho;
+    musicaAtual.innerText = "Tocando agora: " + nome;
+    player.play();
+  }
+</script>
+
+</body>
+</html>
